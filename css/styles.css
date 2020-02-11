@@ -1,5 +1,5 @@
 body {
-    background: #9E9E9E;
+    background: #ffd5ad;
 }
 .road {
     background-image: url("../assets/road.png");
@@ -24,5 +24,9 @@ h1{
     background: #607D8B;
     height: 200px;
     width: 200px;
-    display: -moz-popup;
+    display: none;
+    margin: auto;
+}
+.show{
+    display: block;
 }
