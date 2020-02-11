@@ -1,0 +1,28 @@
+body {
+    background: #9E9E9E;
+}
+.road {
+    background-image: url("../assets/road.png");
+    background-repeat: repeat-x;
+    height: 200px;
+}
+h1{
+    color: #607d8b;
+}
+.player1{
+    background-color: blue;
+    height: 50px;
+    width: 100px;
+}
+.player2{
+    background-color: purple;
+    height: 50px;
+    width: 100px;
+}
+.dice{
+    position: relative;
+    background: #607D8B;
+    height: 200px;
+    width: 200px;
+    display: -moz-popup;
+}
