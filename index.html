@@ -11,23 +11,24 @@
 <body>
     <h1>Dice Racer Game</h1>
     <main id="content">
-        <div class="road">
-            <div class="player1 car">
-                <button class="car1">Racer 1: Pick your Car</button>
+        <section class="road">
+            <div class="player1 car">                
             </div>
-            <div class="player2 car">
-                <button class="car2">Racer 2: Pick your Car</button>
+            <div class="player2 car">                
             </div>
-        </div>
-        <div class="carChoice">
-            <img src="assets/red.png" alt="Red Car" class="car racer1">
-            <img src="assets/yellow.png" alt="Yellow Car" class="car racer2">
-            <img src="assets/blue.png" alt="Blue Car" class="car racer3">
-            <img src="assets/grey.png" alt="Grey Car" class="car racer4">
+            <div class="showCar">
 
-        </div>
+            </div>
+            
+        </section>
+        <section class="carImages">
+            <img src="assets/red.png" alt="Red Car" class="car racer1 carHover">
+            <img src="assets/yellow.png" alt="Yellow Car" class="car racer2 carHover">
+            <img src="assets/blue.png" alt="Blue Car" class="car racer3 carHover">
+            <img src="assets/grey.png" alt="Grey Car" class="car racer4 carHover">
+        </section>
 
-        <div class="dices">
+        <section class="dices">
             <img src="assets/dice1.png" alt="dice rolled 1" class="dice d1">
             <img src="assets/dice2.png" alt="dice rolled 2" class="dice d2">
             <img src="assets/dice3.png" alt="dice rolled 3" class="dice d3">
@@ -36,15 +37,17 @@
             <img src="assets/dice6.png" alt="dice rolled 6" class="dice d6">
             <img src="assets/flat.png" alt="dice rolled flat tire" class="dice d7">
             <img src="assets/boost.gif" alt="dice rolled boost" class="dice d8">
-        </div>
+        </section>
         <div class="finishLine">
             
         </div>
-        <button class="race">
-            <em> Race</em>
+        <button class="car1">Racer 1: Pick your Car</button>
+        <button class="car2">Racer 2: Pick your Car</button>
+        <button class="race1">
+            <em> Race 1</em>
         </button>
-        <button id="roll">
-            Roll
+        <button class="race2">
+            <em> Racer 2</em>
         </button>
     </main>    
 </body>

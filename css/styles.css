@@ -1,26 +1,74 @@
 body {
-    background: #ffd5ad;
+    background: #3e6520;
 }
 .road {
     background-image: url("../assets/road.png");
     background-repeat: repeat-x;
     height: 200px;
+    padding: 5px;
 }
 h1{
     color: #607d8b;
 }
-.carChoice{
+.carImages{
     background: #332b23;
-    height: 200px;
+    /* height: 200px;
     width: 300px;
-    margin: auto;
-    display: none;
+    margin: auto;*/
+    display: none; 
 }
 .car{
     background-size: contain;
+    background-repeat: repeat-x;
     height: 60px;
     width: 120px;
     margin: 20px 13px;
+}
+.showCar{
+    background-size: contain;
+    height: 150px;
+    width: 280px;
+    position: absolute;
+    top: 70px;
+    margin: 26px 40%;
+    font-size: larger;
+    color: white;
+    /* display: none; */
+    background-repeat: no-repeat;
+}
+.choice{
+    border-radius: 50px;
+    height: 60px;
+    width: 250px;
+    font-size: larger;
+    position: relative;
+    top: 130px;
+}
+.choice:hover{    
+    border-radius: 50px;
+    height: 60px;
+    width: 250px;
+    font-size: larger;
+    position: relative;
+    top: 130px;
+    background: #1677cc96;
+}
+.carPromt{
+    border-radius: 50px;
+    height: 80px;
+    width: 150px;
+    font-size: larger;
+    position: relative;
+    top: -270px;
+    left: 45%;
+}
+button:hover{
+background: #1677cc96;
+color: white;
+}
+button{
+    height: 50px;
+    font-size: larger;
 }
 .dice{
     position: relative;
