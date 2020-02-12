@@ -10,7 +10,14 @@ body {
 h1{
     color: #607d8b;
 }
-.carImages{
+.p1CarImages{
+    background: #332b23;
+    /* height: 200px;
+    width: 300px;
+    margin: auto;*/
+    display: none; 
+}
+.p2CarImages{
     background: #332b23;
     /* height: 200px;
     width: 300px;
@@ -33,7 +40,7 @@ h1{
     margin: 26px 40%;
     font-size: larger;
     color: white;
-    /* display: none; */
+    display: none;
     background-repeat: no-repeat;
 }
 .choice{
@@ -80,4 +87,7 @@ button{
 }
 .show{
     display: block;
+}
+.hide {
+
 }
