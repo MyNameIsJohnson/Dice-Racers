@@ -9,19 +9,19 @@ const btn = document.createElement('button');
 const showCar = document.querySelector('.showCar');
 
 // cached elements
+let h1 = document.querySelector('h1');
 let p1 = document.querySelector('.player1');
 let p2 = document.querySelector('.player2');
 
 // button elements 
 let pick1Btn = document.querySelector('.car1');
 let pick2Btn = document.querySelector('.car2');
-let raceBtn = document.querySelector('.race');
-let rollBtn = document.querySelector('.roll');
+let race1Btn = document.querySelector('.race1');
+let race2Btn = document.querySelector('.race2');
 
 // image element
 let p1CarImages = document.querySelector('.p1CarImages');
 let p2CarImages = document.querySelector('.p2CarImages');
-
 
 // car images for line
 let p1Racer1 = document.querySelector('.p1racer1');
@@ -35,13 +35,14 @@ let p2Racer4 = document.querySelector('.p2racer4');
 
 // dice 
 let dices = document.querySelectorAll('.dice');
+let d0 = document.querySelector('.d0');
 let d1 = document.querySelector('.d1');
 let d2 = document.querySelector('.d2');
 let d4 = document.querySelector('.d4');
 let d5 = document.querySelector('.d5');
 let d6 = document.querySelector('.d6');
 let d7 = document.querySelector('.d7');
-let d8 = document.querySelector('.d8');
+
 
 // Eventlisteners
 pick1Btn.addEventListener('click', p1PickCar);
@@ -56,22 +57,31 @@ p2Racer2.addEventListener('click', p2racer2Choice);
 p2Racer3.addEventListener('click', p2racer3Choice);
 p2Racer4.addEventListener('click', p2racer4Choice);
 btn.addEventListener('click', hideShowCar)
-// may have to create duplicate for p2Racer1-4
 
-// raceBtn.addEventListener('click', race);
-// rollBtn.addEventListener('click', diceRoll);
+race1Btn.addEventListener('click', race1);
+// race2Btn.addEventListener('click', race2);
 
 // Functions    
+// hide show car 
+function hideShowCar(){
+    showCar.style.backgroundImage = '';
+    showCar.innerHTML = '';
+    p1CarImages.style.display = 'none'
+    p2CarImages.style.display = 'none'
+};
+
+// Car picked needs to be added to the track
 function p1PickCar(event){
     p1CarImages.style.display = 'block';
+    showCar.style.display = 'block';
     showCar.innerHTML = 'Player 1 Choose your Car!'
 };
 function p2PickCar(event){
     p2CarImages.style.display = 'block';
-    showCar.innerHTML = 'Player 1 Choose your Car!'
+    showCar.style.display = 'block';
+    showCar.innerHTML = 'Player 2 Choose your Car!'
 };
 
-// Car picked needs to be added to the track
 // Add p1 car to player1 line
 function p1racer1Choice(event){
     showCar.innerHTML = '';
@@ -81,6 +91,7 @@ function p1racer1Choice(event){
     btn.innerHTML = 'Do you wnat this Car?'; 
     showCar.style.backgroundImage = 'url(assets/red.png)';
     showCar.style.display = 'block';
+    race1Btn.style.display = 'grid';
 };
 function p1racer2Choice(event){
     showCar.innerHTML = '';
@@ -90,6 +101,7 @@ function p1racer2Choice(event){
     btn.innerHTML = 'Do you wnat this Car?';
     showCar.style.backgroundImage = 'url(assets/yellow.png)';
     showCar.style.display = 'block';
+    race1Btn.style.display = 'grid';
 };
 function p1racer3Choice(event){
     showCar.innerHTML = '';
@@ -99,6 +111,7 @@ function p1racer3Choice(event){
     btn.innerHTML = 'Do you wnat this Car?';
     showCar.style.backgroundImage = 'url(assets/blue.png)';
     showCar.style.display = 'block';
+    race1Btn.style.display = 'block';
 };
 function p1racer4Choice(event){
     showCar.innerHTML = '';
@@ -108,6 +121,7 @@ function p1racer4Choice(event){
     btn.innerHTML = 'Do you wnat this Car?';
     showCar.style.backgroundImage = 'url(assets/grey.png)';
     showCar.style.display = 'block';
+    race1Btn.style.display = 'block';
 };
 
 // add p2 car to player 2 line
@@ -119,6 +133,7 @@ function p2racer1Choice(event){
     btn.innerHTML = 'Do you wnat this Car?'; 
     showCar.style.backgroundImage = 'url(assets/red.png)';
     showCar.style.display = 'block';
+    race2Btn.style.display = 'block';
 };
 function p2racer2Choice(event){
     showCar.innerHTML = '';
@@ -128,6 +143,7 @@ function p2racer2Choice(event){
     btn.innerHTML = 'Do you wnat this Car?';
     showCar.style.backgroundImage = 'url(assets/yellow.png)';
     showCar.style.display = 'block';
+    race2Btn.style.display = 'block';
 };
 function p2racer3Choice(event){
     showCar.innerHTML = '';
@@ -137,6 +153,7 @@ function p2racer3Choice(event){
     btn.innerHTML = 'Do you wnat this Car?';
     showCar.style.backgroundImage = 'url(assets/blue.png)';
     showCar.style.display = 'block';
+    race2Btn.style.display = 'block';
 };
 function p2racer4Choice(event){
     showCar.innerHTML = '';
@@ -146,15 +163,54 @@ function p2racer4Choice(event){
     btn.innerHTML = 'Do you wnat this Car?';
     showCar.style.backgroundImage = 'url(assets/grey.png)';
     showCar.style.display = 'block';
+    race2Btn.style.display = 'block';
 };
 
-// hide show car 
-function hideShowCar(){
-    showCar.style.backgroundImage = '';
-    showCar.innerHTML = '';
-    p1CarImages.style.display = 'none'
-};
+// dice
+function random(){
+    return  Math.floor(Math.random() * Math.floor(dices.length));
+}
 
-// add click to display car 
-
-
+function race1(){
+    if (random() === 0){
+        d0.style.display = 'block';
+        h1.innerHTML = 'Player 1 got a flat tire! Lose turn Player 2 race!';
+        // d0.style.display = 'none';   
+        race1Btn.style.display = 'none';    
+    }else if(random() === 1){
+        d1.style.display = 'block';
+        h1.innerHTML ='Player 1 rolled a 1 and gained a 10 yard lead! Player 2 race!';
+        // d1.style.display = 'none'; 
+        race1Btn.style.display = 'none';    
+    }else if(random() === 2){
+        d2.style.display = 'block';
+        h1.innerHTML ='Player 1 rolled a 2 and gained a 20 yard lead! Player 2 race!';
+        // d2.style.display = 'none';
+        race1Btn.style.display = 'none';   
+    }else if(random() === 3){
+        d3.style.display = 'block';
+        h1.innerHTML ='Player 1 rolled a 3 and gained a 30 yard lead! Player 2 race!';
+        // d3.style.display = 'none';  
+        race1Btn.style.display = 'none';    
+    }else if(random() === 4){
+        d4.style.display = 'block';
+        h1.innerHTML ='Player 1 rolled a 4 and gained a 40 yard lead! Player 2 race!';
+        // d4.style.display = 'none';
+        race1Btn.style.display = 'none';   
+    }else if(random() === 5){
+        d5.style.display = 'block';
+        h1.innerHTML ='Player 1 rolled a 5 and gained a 50 yard lead! Player 2 race!';
+        // d5.style.display = 'none';  
+        race1Btn.style.display = 'none';   
+    }else if(random() === 6){
+        d6.style.display = 'block';
+        h1.innerHTML ='Player 1 rolled a 6 and gained a 60 yard lead! Player 2 race!';
+        // d6.style.display = 'none';
+        race1Btn.style.display = 'none';   
+    }else {
+        d7.style.display = 'block';
+        h1.innerHTML ='Player 1 rolled a 7 and gained a 80 yard lead! Player 2 race!';
+        // d7.style.display = 'none';
+        race1Btn.style.display = 'none';   
+    }
+}

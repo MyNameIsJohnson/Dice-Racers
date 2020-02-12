@@ -5,10 +5,11 @@ body {
     background-image: url("../assets/road.png");
     background-repeat: repeat-x;
     height: 200px;
+    width:200%;
     padding: 5px;
 }
 h1{
-    color: #607d8b;
+    color: #cbe050;
 }
 .p1CarImages{
     background: #332b23;
@@ -26,16 +27,22 @@ h1{
 }
 .car{
     background-size: contain;
-    background-repeat: repeat-x;
+    background-repeat: no-repeat;
     height: 60px;
     width: 120px;
     margin: 20px 13px;
+}
+.player1{
+    margin-top: -190px;
+}
+.player2{
+    margin-top: 30px;
 }
 .showCar{
     background-size: contain;
     height: 150px;
     width: 280px;
-    position: absolute;
+    position: fixed;
     top: 70px;
     margin: 26px 40%;
     font-size: larger;
@@ -77,17 +84,56 @@ button{
     height: 50px;
     font-size: larger;
 }
+.raceBtn{
+    display: grid;
+}
+.race1{
+    display: none;
+
+}
+.race2{
+    display: none;
+}
 .dice{
     position: relative;
     background: #607D8B;
     height: 200px;
     width: 200px;
     display: none;
-    margin: auto;
+    margin: 20px auto;
+    border: aliceblue 5px solid;
 }
 .show{
     display: block;
 }
-.hide {
+.roadStart{
+    animation: 2s infinite slidein;
+  }
+  
+@keyframes slidein {
+    from {
+        margin-right: -100%;
+        width: 300%; 
+    }
 
+    to {
+        margin-left: -100%;
+    }
 }
+
+
+
+/* .player1{
+    animation: 2s d0;
+    margin-left: 100px;
+}
+
+@keyframes d0 {
+  from {
+    margin-left: 0px;
+  }
+
+  to {
+    margin-left: 100px;
+  }
+} */

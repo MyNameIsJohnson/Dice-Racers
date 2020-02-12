@@ -4,7 +4,7 @@ Wireframe included in assets folder
 
 Objective: Players will take turns rolling dice to reach the finish line. 
 
-Board: Main screen shows two player icons and a track to the left of the screen. The right side will show a finish line. A button will initiate the roll with images of dice being spun. 
+Board: Main screen shows two player icons and a track on the screen. The right side will show a finish line. Player 1 and Player 2 will take turns choosing there car. A button will initiate the race with images of dice being spun. 
 
 Required: 2 player images, 6 dice image
 
