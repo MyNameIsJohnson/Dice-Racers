@@ -9,15 +9,18 @@ body {
 h1{
     color: #607d8b;
 }
-.player1{
-    background-color: blue;
-    height: 50px;
-    width: 100px;
+.carChoice{
+    background: #332b23;
+    height: 200px;
+    width: 300px;
+    margin: auto;
+    display: none;
 }
-.player2{
-    background-color: purple;
-    height: 50px;
-    width: 100px;
+.car{
+    background-size: contain;
+    height: 60px;
+    width: 120px;
+    margin: 20px 13px;
 }
 .dice{
     position: relative;
