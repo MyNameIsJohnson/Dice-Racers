@@ -96,3 +96,5 @@ function p1racer4Choice(event){
 };
 
 // add click to display car 
+
+
