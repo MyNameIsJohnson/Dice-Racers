@@ -85,6 +85,7 @@ function reset(){
     h1.innerHTML = `Dice Racer Game`;
     road.setAttribute('class', '');
     car1.score = 0;
+    p1.style.disp = '0px';
     p1.style.marginLeft = '0px';
     car2.score = 0;
     p2.style.marginLeft = '0px';
@@ -203,7 +204,6 @@ function random(){
 function race1(){
     road.setAttribute('class', 'roadStart');
 if (car1.score >= 1400){
-    alert(`Player 1 WON!!! Better luck next time Player 2.`);
     h1.style.fontSize = '100px';
     h1.innerHTML =`Player 1 WON!!! Better luck next time Player 2.`;
     h1.appendChild(resetBtn);
@@ -323,7 +323,6 @@ if (car1.score >= 1400){
 function race2(){
     road.setAttribute('class', 'roadStart');
     if (car2.score >= 1400){
-        alert(`Player 2 WON!!! Better luck next time Player 1.`);    
         h1.style.fontSize = '100px';
         h1.innerHTML = `Player 2 WON!!! Better luck next time Player 1.`
         h1.appendChild(resetBtn);
