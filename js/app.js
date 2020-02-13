@@ -76,18 +76,19 @@ function hideShowCar(){
 function p1PickCar(event){
     p1CarImages.style.display = 'block';
     showCar.style.display = 'block';
-    showCar.innerHTML = 'Player 1 Choose your Car!'
+    showCar.innerHTML = 'Player 1 Choose your Car!';
+    pick1Btn.style.display = 'none';
 };
 function p2PickCar(event){
     p2CarImages.style.display = 'block';
     showCar.style.display = 'block';
     showCar.innerHTML = 'Player 2 Choose your Car!'
+    pick2Btn.style.display = 'none';
 };
 
 // Add p1 car to player1 line
 function p1racer1Choice(event){
     showCar.innerHTML = '';
-    pick1Btn.style.display = 'none';
     p1.style.backgroundImage = 'url(assets/red.png)';
     showCar.appendChild(btn).setAttribute('class', 'choice');
     btn.innerHTML = 'Do you wnat this Car?'; 
@@ -97,7 +98,6 @@ function p1racer1Choice(event){
 };
 function p1racer2Choice(event){
     showCar.innerHTML = '';
-    pick1Btn.style.display = 'none';
     p1.style.backgroundImage = 'url(assets/yellow.png)';
     showCar.appendChild(btn).setAttribute('class', 'choice');
     btn.innerHTML = 'Do you wnat this Car?';
@@ -107,7 +107,6 @@ function p1racer2Choice(event){
 };
 function p1racer3Choice(event){
     showCar.innerHTML = '';
-    pick1Btn.style.display = 'none';
     p1.style.backgroundImage = 'url(assets/blue.png)';
     showCar.appendChild(btn).setAttribute('class', 'choice');
     btn.innerHTML = 'Do you wnat this Car?';
@@ -117,7 +116,6 @@ function p1racer3Choice(event){
 };
 function p1racer4Choice(event){
     showCar.innerHTML = '';
-    pick1Btn.style.display = 'none';
     p1.style.backgroundImage = 'url(assets/grey.png)';
     showCar.appendChild(btn).setAttribute('class', 'choice');
     btn.innerHTML = 'Do you wnat this Car?';
@@ -129,7 +127,6 @@ function p1racer4Choice(event){
 // add p2 car to player 2 line
 function p2racer1Choice(event){
     showCar.innerHTML = '';
-    pick2Btn.style.display = 'none';
     p2.style.backgroundImage = 'url(assets/red.png)';
     showCar.appendChild(btn).setAttribute('class', 'choice');
     btn.innerHTML = 'Do you wnat this Car?'; 
@@ -139,7 +136,6 @@ function p2racer1Choice(event){
 };
 function p2racer2Choice(event){
     showCar.innerHTML = '';
-    pick2Btn.style.display = 'none';
     p2.style.backgroundImage = 'url(assets/yellow.png)';
     showCar.appendChild(btn).setAttribute('class', 'choice');
     btn.innerHTML = 'Do you wnat this Car?';
@@ -149,7 +145,6 @@ function p2racer2Choice(event){
 };
 function p2racer3Choice(event){
     showCar.innerHTML = '';
-    pick2Btn.style.display = 'none';
     p2.style.backgroundImage = 'url(assets/blue.png)';
     showCar.appendChild(btn).setAttribute('class', 'choice');
     btn.innerHTML = 'Do you wnat this Car?';
@@ -159,7 +154,6 @@ function p2racer3Choice(event){
 };
 function p2racer4Choice(event){
     showCar.innerHTML = '';
-    pick2Btn.style.display = 'none';
     p2.style.backgroundImage = 'url(assets/grey.png)';
     showCar.appendChild(btn).setAttribute('class', 'choice');
     btn.innerHTML = 'Do you wnat this Car?';
@@ -176,8 +170,9 @@ function random(){
 // START
 function race1(){
     road.setAttribute('class', 'roadStart');
-if (car1.score === 1200){
+if (car1.score >= 1400){
     alert(`Player 1 WON!!! Better luck next time Player 2.`);
+    h1.innerHTML =`Player 1 WON!!! Better luck next time Player 2.`
     } else if (random() === 0){
         d0.style.display = 'block';
         h1.innerHTML = 'Player 1 got a flat tire! Lose turn Player 2 race!';
@@ -291,8 +286,9 @@ if (car1.score === 1200){
     }
 };
 function race2(){
-    if (car1.score === 1200){
+    if (car2.score >= 1400){
         alert(`Player 2 WON!!! Better luck next time Player 1.`);
+        h1.innerHTML = `Player 2 WON!!! Better luck next time Player 1.`
     } else if (random() === 0){
         d0.style.display = 'block';
         h1.innerHTML = 'Player 2 got a flat tire! Lose turn Player 1 race!';
@@ -354,7 +350,8 @@ function race2(){
         car2.score += 40;
         p2.style.marginLeft = car2.score +'px';
         race2Btn.style.display = 'none';    
-        race1Btn.style.display = 'grid';         d0.style.display = 'none'
+        race1Btn.style.display = 'grid';         
+        d0.style.display = 'none'
         d1.style.display = 'none'
         d2.style.display = 'none'
         d3.style.display = 'none'
