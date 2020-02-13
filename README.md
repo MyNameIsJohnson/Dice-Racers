@@ -1,6 +1,6 @@
 Dice-Racer Game
 
-Wireframe included in assets folder
+Wireframe included in assets folder `assets.wireframe.png`
 
 Objective: Players will take turns rolling dice to reach the finish line. 
 
@@ -12,6 +12,4 @@ Code:
 1. player object that has name and score
 2. finish line is equal to score 1000 // dont need this
 3. dice roll with Math.random()
-4. try using timer code file:///Users/johnsonthieu/sei/lessons/object.js while dice is rolled and looping through images.
-5. cars will move along the road by increased / decresed left and right margins depending on the dice roll
-6. 
+4. Cars will move along the road on the DOM's x-axis depending on the dice roll

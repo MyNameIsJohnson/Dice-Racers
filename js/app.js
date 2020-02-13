@@ -50,6 +50,9 @@ let d5 = document.querySelector('.d5');
 let d6 = document.querySelector('.d6');
 let d7 = document.querySelector('.d7');
 
+// audio
+let exhaust = new Audio('audio/exhaust.mp3');
+
 
 // Eventlisteners
 pick1Btn.addEventListener('click', p1PickCar);
@@ -142,7 +145,7 @@ function p1racer3Choice(event){
     showCar.innerHTML = '';
     p1.style.backgroundImage = 'url(images/blue.png)';
     showCar.appendChild(btn).setAttribute('class', 'choice');
-    btn.innerHTML = 'Do you wnat this Car?';
+    btn.innerHTML = 'Do you want this Car?';
     showCar.style.backgroundImage = 'url(images/blue.png)';
     showCar.style.display = 'block';
     race1Btn.style.display = 'block';
@@ -151,7 +154,7 @@ function p1racer4Choice(event){
     showCar.innerHTML = '';
     p1.style.backgroundImage = 'url(images/grey.png)';
     showCar.appendChild(btn).setAttribute('class', 'choice');
-    btn.innerHTML = 'Do you wnat this Car?';
+    btn.innerHTML = 'Do you want this Car?';
     showCar.style.backgroundImage = 'url(images/grey.png)';
     showCar.style.display = 'block';
     race1Btn.style.display = 'block';
@@ -162,7 +165,7 @@ function p2racer1Choice(event){
     showCar.innerHTML = '';
     p2.style.backgroundImage = 'url(images/red.png)';
     showCar.appendChild(btn).setAttribute('class', 'choice');
-    btn.innerHTML = 'Do you wnat this Car?'; 
+    btn.innerHTML = 'Do you want this Car?'; 
     showCar.style.backgroundImage = 'url(images/red.png)';
     showCar.style.display = 'block';
     race2Btn.style.display = 'block';
@@ -171,7 +174,7 @@ function p2racer2Choice(event){
     showCar.innerHTML = '';
     p2.style.backgroundImage = 'url(images/yellow.png)';
     showCar.appendChild(btn).setAttribute('class', 'choice');
-    btn.innerHTML = 'Do you wnat this Car?';
+    btn.innerHTML = 'Do you want this Car?';
     showCar.style.backgroundImage = 'url(images/yellow.png)';
     showCar.style.display = 'block';
     race2Btn.style.display = 'block';
@@ -180,7 +183,7 @@ function p2racer3Choice(event){
     showCar.innerHTML = '';
     p2.style.backgroundImage = 'url(images/blue.png)';
     showCar.appendChild(btn).setAttribute('class', 'choice');
-    btn.innerHTML = 'Do you wnat this Car?';
+    btn.innerHTML = 'Do you want this Car?';
     showCar.style.backgroundImage = 'url(images/blue.png)';
     showCar.style.display = 'block';
     race2Btn.style.display = 'block';
@@ -189,7 +192,7 @@ function p2racer4Choice(event){
     showCar.innerHTML = '';
     p2.style.backgroundImage = 'url(images/grey.png)';
     showCar.appendChild(btn).setAttribute('class', 'choice');
-    btn.innerHTML = 'Do you wnat this Car?';
+    btn.innerHTML = 'Do you want this Car?';
     showCar.style.backgroundImage = 'url(images/grey.png)';
     showCar.style.display = 'block';
     race2Btn.style.display = 'block';
@@ -202,9 +205,11 @@ function random(){
 
 // START
 function race1(){
+    exhaust.play();
     road.setAttribute('class', 'roadStart');
 if (car1.score >= 1400){
-    h1.style.fontSize = '100px';
+    h1.style.fontSize = '100px'
+    h1.style.height = '700px';
     h1.innerHTML =`Player 1 WON!!! Better luck next time Player 2.`;
     h1.appendChild(resetBtn);
     h1.after(resetBtn);
@@ -321,9 +326,11 @@ if (car1.score >= 1400){
     }
 };
 function race2(){
+    exhaust.play();
     road.setAttribute('class', 'roadStart');
     if (car2.score >= 1400){
         h1.style.fontSize = '100px';
+        h1.style.height = '700px';
         h1.innerHTML = `Player 2 WON!!! Better luck next time Player 1.`
         h1.appendChild(resetBtn);
         h1.after(resetBtn);
