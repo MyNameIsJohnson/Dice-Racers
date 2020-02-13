@@ -1,11 +1,12 @@
 body {
     background: #3e6520;
+    width: auto;
 }
-.road {
+#road {
     background-image: url("../assets/road.png");
     background-repeat: repeat-x;
+    margin-top: 30px;
     height: 200px;
-    width:200%;
     padding: 5px;
 }
 h1{
@@ -103,17 +104,36 @@ button{
     margin: 20px auto;
     border: aliceblue 5px solid;
 }
+.p1dices{
+    position: relative;
+    background: #607D8B;
+    height: 200px;
+    width: 200px;
+    display: none;
+    margin: 20px auto;
+    border: aliceblue 5px solid;
+}
+.p2dices{
+    position: relative;
+    background: #607D8B;
+    height: 200px;
+    width: 200px;
+    display: none;
+    margin: 20px auto;
+    border: aliceblue 5px solid;
+}
+
 .show{
     display: block;
 }
 .roadStart{
-    animation: 2s infinite slidein;
+    animation: .5s infinite slidein;
   }
   
 @keyframes slidein {
     from {
         margin-right: -100%;
-        width: 300%; 
+        width: 200%; 
     }
 
     to {
