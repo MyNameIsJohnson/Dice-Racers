@@ -10,7 +10,7 @@ Required: 2 player images, 6 dice image
 
 Code: 
 1. player object that has name and score
-2. finish line is equal to score 100 // dont need this
+2. finish line is equal to score 1000 // dont need this
 3. dice roll with Math.random()
 4. try using timer code file:///Users/johnsonthieu/sei/lessons/object.js while dice is rolled and looping through images.
 5. cars will move along the road by increased / decresed left and right margins depending on the dice roll
