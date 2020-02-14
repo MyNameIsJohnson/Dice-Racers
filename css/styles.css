@@ -10,6 +10,13 @@ body {
     height: 200px;
     padding: 5px;
 }
+.finish{
+    display: flex;
+    float: right;
+    position: relative;
+    margin-top: -230px;
+    color: white;
+}
 h1{
     color: #8BC34A;
     text-align: center;
