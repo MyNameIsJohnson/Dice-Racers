@@ -6,7 +6,7 @@ body {
 #road {
     background-image: url("../images/road.png");
     background-repeat: repeat-x;
-    margin-top: 30px;
+    margin-top: 10px;
     height: 200px;
     padding: 5px;
 }
@@ -41,6 +41,15 @@ h1{
     height: 60px;
     width: 120px;
     margin: 20px 13px;
+}
+.car1 {
+    float: left;
+}
+.car2{
+    float: right;
+}
+.carPick{
+    display: grid;
 }
 .player1{
     margin-top: -190px;
@@ -98,25 +107,23 @@ button{
     display: '';
 }
 .pickBtn{
-    border-radius: 25px;
+    /* border-radius: 25px;
     border: solid 5px lightblue;
-}
-.carPick{
-    display: grid;
-}
-.race1{
+    margin-top: 100px; */
+    border-radius: 50px;
+    border: solid 5px lightblue;
+    margin: 20px 200px;
+    /* height: 200px;
+    width: 150px;*/
+} 
+.race{
     display: none;
     width: 150px;
     height: 100px;
     border-radius: 50px;
     margin: auto;
 }
-.race2{
-    display: none;
-    width: 150px;
-    height: 100px;
-    border-radius: 50px;
-    margin: auto;}
+
 .dice{
     position: relative;
     background: #607D8B;
@@ -154,11 +161,10 @@ button{
   
 @keyframes slidein {
     from {
-        margin-right: -100%;
-        width: 200%; 
+        margin-right: 0; 
     }
 
     to {
-        margin-left: -100%;
+        margin-left: -7%;
     }
 }

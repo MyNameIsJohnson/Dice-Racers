@@ -5,11 +5,13 @@ const car1 = {
 const car2 = {
     score: 0
 };
-const btn = document.createElement('button');
+const pickbtn = document.createElement('button');
 const showCar = document.querySelector('.showCar');
 const road = document.querySelector('#road');
 const h2 = document.createElement('h2');
+const raceBtn = document.querySelector('.raceBtn');
 const resetBtn = document.createElement('button');
+const startBtn = document.createElement('button');
 resetBtn.innerHTML = 'RESET';
 resetBtn.style.margin = 'auto';
 resetBtn.style.background = 'red';
@@ -39,6 +41,7 @@ let p2Racer2 = document.querySelector('.p2racer2');
 let p2Racer3 = document.querySelector('.p2racer3');
 let p2Racer4 = document.querySelector('.p2racer4');
 
+
 // dice 
 let dice = document.querySelectorAll('.dice');
 let d0 = document.querySelector('.d0');
@@ -52,33 +55,43 @@ let d7 = document.querySelector('.d7');
 
 // audio
 let exhaust = new Audio('audio/exhaust.mp3');
-
+let exhaustSound = new Audio('audio/exhaust-sound.mp3');
+let winSound = new Audio('audio/DjZel-Beat.mp3');
 
 // Eventlisteners
 pick1Btn.addEventListener('click', p1PickCar);
 pick2Btn.addEventListener('click', p2PickCar);
-p1Racer1.addEventListener('click', p1racer1Choice, );
+p1Racer1.addEventListener('click', p1racer1Choice);
 p1Racer2.addEventListener('click', p1racer2Choice);
 p1Racer3.addEventListener('click', p1racer3Choice);
 p1Racer4.addEventListener('click', p1racer4Choice);
 
-p2Racer1.addEventListener('click', p2racer1Choice, );
+p2Racer1.addEventListener('click', p2racer1Choice);
 p2Racer2.addEventListener('click', p2racer2Choice);
 p2Racer3.addEventListener('click', p2racer3Choice);
 p2Racer4.addEventListener('click', p2racer4Choice);
-btn.addEventListener('click', hideShowCar);
+
+pickbtn.addEventListener('click', hideShowCar);
 resetBtn.addEventListener('click', reset);
 
 race1Btn.addEventListener('click', race1);
 race2Btn.addEventListener('click', race2);
+startBtn.addEventListener('click', start);
+
 
 // Functions    
 // hide show car 
 function hideShowCar(){
     showCar.style.backgroundImage = '';
     showCar.innerHTML = '';
-    p1CarImages.style.display = 'none'
-    p2CarImages.style.display = 'none'
+    p1CarImages.style.display = 'none';
+    p2CarImages.style.display = 'none';
+    if(p1.style.backgroundImage !== "" && p2.style.backgroundImage !== ""){
+        raceBtn.appendChild(startBtn).innerHTML = 'START';
+        startBtn.setAttribute('class', 'race');
+        startBtn.style.display = 'grid'
+        h1.innerHTML = 'Press START when you ready';
+    };
 };
 
 // reset 
@@ -95,6 +108,7 @@ function reset(){
     race1Btn.style.display = 'none';
     race2Btn.style.display = 'none';
     h1.style.fontSize = '';
+    h1.style.height = '';
     d0.style.display = 'none';
     d1.style.display = 'none';
     d2.style.display = 'none';
@@ -103,22 +117,24 @@ function reset(){
     d5.style.display = 'none';
     d6.style.display = 'none';
     d7.style.display = 'none';
+    p1.style.backgroundImage = '';
+    p2.style.backgroundImage = '';
+    winSound.pause()
     resetBtn.remove();
+    
 };
 
 // Car picked needs to be added to the track
 function p1PickCar(event){
     p1CarImages.style.display = 'block';
     showCar.style.display = 'block';
-    h2.innerHTML = 'Player 1 Choose your Car!';
-    showCar.appendChild(h2);
+    h1.innerHTML = 'Player 1 Choose your Car!';
     pick1Btn.style.display = 'none';
 };
 function p2PickCar(event){
     p2CarImages.style.display = 'block';
     showCar.style.display = 'block';
-    h2.innerHTML = 'Player 2 Choose your Car!'
-    showCar.appendChild(h2);
+    h1.innerHTML = 'Player 2 Choose your Car!'
     pick2Btn.style.display = 'none';
 };
 
@@ -126,76 +142,68 @@ function p2PickCar(event){
 function p1racer1Choice(event){
     showCar.innerHTML = '';
     p1.style.backgroundImage = 'url(images/red.png)';
-    showCar.appendChild(btn).setAttribute('class', 'choice');
-    btn.innerHTML = 'Do you want this Car?'; 
+    showCar.appendChild(pickbtn).setAttribute('class', 'choice');
+    pickbtn.innerHTML = 'Do you want this Car?'; 
     showCar.style.backgroundImage = 'url(images/red.png)';
     showCar.style.display = 'block';
-    race1Btn.style.display = 'grid';
 };
 function p1racer2Choice(event){
     showCar.innerHTML = '';
     p1.style.backgroundImage = 'url(images/yellow.png)';
-    showCar.appendChild(btn).setAttribute('class', 'choice');
-    btn.innerHTML = 'Do you want this Car?';
+    showCar.appendChild(pickbtn).setAttribute('class', 'choice');
+    pickbtn.innerHTML = 'Do you want this Car?';
     showCar.style.backgroundImage = 'url(images/yellow.png)';
     showCar.style.display = 'block';
-    race1Btn.style.display = 'grid';
 };
 function p1racer3Choice(event){
     showCar.innerHTML = '';
     p1.style.backgroundImage = 'url(images/blue.png)';
-    showCar.appendChild(btn).setAttribute('class', 'choice');
-    btn.innerHTML = 'Do you want this Car?';
+    showCar.appendChild(pickbtn).setAttribute('class', 'choice');
+    pickbtn.innerHTML = 'Do you want this Car?';
     showCar.style.backgroundImage = 'url(images/blue.png)';
     showCar.style.display = 'block';
-    race1Btn.style.display = 'block';
 };
 function p1racer4Choice(event){
     showCar.innerHTML = '';
     p1.style.backgroundImage = 'url(images/grey.png)';
-    showCar.appendChild(btn).setAttribute('class', 'choice');
-    btn.innerHTML = 'Do you want this Car?';
+    showCar.appendChild(pickbtn).setAttribute('class', 'choice');
+    pickbtn.innerHTML = 'Do you want this Car?';
     showCar.style.backgroundImage = 'url(images/grey.png)';
     showCar.style.display = 'block';
-    race1Btn.style.display = 'block';
 };
 
 // add p2 car to player 2 line
 function p2racer1Choice(event){
     showCar.innerHTML = '';
     p2.style.backgroundImage = 'url(images/red.png)';
-    showCar.appendChild(btn).setAttribute('class', 'choice');
-    btn.innerHTML = 'Do you want this Car?'; 
+    showCar.appendChild(pickbtn).setAttribute('class', 'choice');
+    pickbtn.innerHTML = 'Do you want this Car?'; 
     showCar.style.backgroundImage = 'url(images/red.png)';
     showCar.style.display = 'block';
-    race2Btn.style.display = 'block';
 };
 function p2racer2Choice(event){
     showCar.innerHTML = '';
     p2.style.backgroundImage = 'url(images/yellow.png)';
-    showCar.appendChild(btn).setAttribute('class', 'choice');
-    btn.innerHTML = 'Do you want this Car?';
+    showCar.appendChild(pickbtn).setAttribute('class', 'choice');
+    pickbtn.innerHTML = 'Do you want this Car?';
     showCar.style.backgroundImage = 'url(images/yellow.png)';
     showCar.style.display = 'block';
-    race2Btn.style.display = 'block';
 };
 function p2racer3Choice(event){
     showCar.innerHTML = '';
     p2.style.backgroundImage = 'url(images/blue.png)';
-    showCar.appendChild(btn).setAttribute('class', 'choice');
-    btn.innerHTML = 'Do you want this Car?';
+    showCar.appendChild(pickbtn).setAttribute('class', 'choice');
+    pickbtn.innerHTML = 'Do you want this Car?';
     showCar.style.backgroundImage = 'url(images/blue.png)';
     showCar.style.display = 'block';
-    race2Btn.style.display = 'block';
 };
 function p2racer4Choice(event){
     showCar.innerHTML = '';
     p2.style.backgroundImage = 'url(images/grey.png)';
-    showCar.appendChild(btn).setAttribute('class', 'choice');
-    btn.innerHTML = 'Do you want this Car?';
+    showCar.appendChild(pickbtn).setAttribute('class', 'choice');
+    pickbtn.innerHTML = 'Do you want this Car?';
     showCar.style.backgroundImage = 'url(images/grey.png)';
     showCar.style.display = 'block';
-    race2Btn.style.display = 'block';
 };
 
 // dice
@@ -204,15 +212,25 @@ function random(){
 }
 
 // START
-function race1(){
+function start(){
     exhaust.play();
     road.setAttribute('class', 'roadStart');
+    startBtn.style.display = 'none';      
+    race1Btn.style.display = 'grid';
+    h1.innerHTML = 'Go! Go! Go!'      
+}
+
+function race1(){
+    exhaustSound.play();
 if (car1.score >= 1400){
     h1.style.fontSize = '100px'
     h1.style.height = '700px';
     h1.innerHTML =`Player 1 WON!!! Better luck next time Player 2.`;
     h1.appendChild(resetBtn);
     h1.after(resetBtn);
+    winSound.play();
+    exhaust.pause()
+    exhaustSound.pause()    
     } else if (random() === 0){
         d0.style.display = 'block';
         h1.innerHTML = 'Player 1 got a flat tire! Lose turn Player 2 race!';
@@ -326,7 +344,7 @@ if (car1.score >= 1400){
     }
 };
 function race2(){
-    exhaust.play();
+    exhaustSound.play();
     road.setAttribute('class', 'roadStart');
     if (car2.score >= 1400){
         h1.style.fontSize = '100px';
@@ -334,6 +352,9 @@ function race2(){
         h1.innerHTML = `Player 2 WON!!! Better luck next time Player 1.`
         h1.appendChild(resetBtn);
         h1.after(resetBtn);
+        exhaust.pause()
+        exhaustSound.pause()    
+        winSound.play();
     } else if (random() === 0){
         d0.style.display = 'block';
         h1.innerHTML = 'Player 2 got a flat tire! Lose turn Player 1 race!';
